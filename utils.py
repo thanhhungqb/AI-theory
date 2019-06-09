@@ -6,6 +6,10 @@ from matplotlib import pyplot as plt
 from sklearn import preprocessing
 from sklearn.cluster import KMeans
 
+GDRIVE_KAZE_100_NORM_ID = '1bu58-ycXTjFPhFatXMnA8E_TP84Hux5F'
+GDRIVE_SIFT_100_NORM_ID = '1EuWxaW4OqhBt94eb1TsEXQgvoDRD4CPk'
+GDRIVE_SUFT_100_NORM_ID = '1W1YIXWwNYNEV_qwl74FIxu58q5f9PAqi'
+
 
 def feature_extractor(img_path, detector, ret_both=False):
     img = cv.imread(img_path, 0)
