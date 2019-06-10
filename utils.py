@@ -297,3 +297,30 @@ def balanced_subsample(x, y, subsample_size=1.0):
     ys = np.concatenate(ys)
 
     return xs, ys
+
+
+def balanced_upsample(x, y, one_class_size=1000):
+    """
+    sampling with replace. Mostly use to up-sampling
+    """
+    class_xs = []
+
+    for yi in np.unique(y):
+        elems = x[(y == yi)]
+        class_xs.append((yi, elems))
+
+    xs = []
+    ys = []
+
+    for ci, this_xs in class_xs:
+        x_ = np.random.choice(this_xs, size=one_class_size, replace=True)
+        y_ = np.empty(one_class_size)
+        y_.fill(ci)
+
+        xs.append(x_)
+        ys.append(y_)
+
+    xs = np.concatenate(xs)
+    ys = np.concatenate(ys)
+
+    return xs, ys
